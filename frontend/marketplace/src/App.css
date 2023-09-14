@@ -1,0 +1,59 @@
+/* src/App.css */
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.App-header {
+  background-color: #232f3e;
+  padding: 20px;
+  color: white;
+}
+
+.Product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.Product {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Product-image {
+  max-width: 100%;
+}
+
+.Product-name {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.Product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.Add-to-cart-button {
+  background-color: #f0c14b;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.Add-to-cart-button:hover {
+  background-color: #ddb347;
+}
