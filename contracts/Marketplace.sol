@@ -11,6 +11,7 @@ contract Marketplace {
         string description;
         uint256 price;
         address payable seller;
+        address payable buyer;
         bool isSold;
     }
 
@@ -34,7 +35,7 @@ contract Marketplace {
         require(_price > 0, "Product price must be greater than 0");
 
         productCount++;
-        products[productCount] = Product(productCount, _name, _description, _price, payable(msg.sender), false);
+        products[productCount] = Product(productCount, _name, _description, _price, payable(msg.sender), payable(address(0)), false);
         emit ProductCreated(productCount, _name, _price, msg.sender);
     }
 
@@ -43,9 +44,22 @@ contract Marketplace {
         require(product.id > 0 && !product.isSold, "Product does not exist or is already sold");
         require(msg.value >= product.price, "Insufficient funds to purchase the product");
 
+        product.buyer = payable(msg.sender);
         product.seller.transfer(msg.value);
         product.isSold = true;
         emit ProductPurchased(product.id, product.name, product.price, msg.sender);
     }
-    
+
+    function withdrawBalance() public onlyOwner {
+        payable(owner).transfer(address(this).balance);
+    }
+
+    function listProduct(uint256 _productId) public {
+        Product storage product = products[_productId];
+        require(product.id > 0 && product.isSold, "Product does not exist or is not sold");
+        require(msg.sender == product.seller, "Only the seller can list the product");
+
+        product.isSold = false;
+        product.buyer = payable(address(0));
+    }
 }
