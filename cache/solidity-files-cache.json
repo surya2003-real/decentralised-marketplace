@@ -2,9 +2,46 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\sgoel\\OneDrive\\Documents\\GitHub\\decentralised-marketplace\\contracts\\Marketplace.sol": {
-      "lastModificationDate": 1694519038700,
-      "contentHash": "f0f1ecb66ada12cc7ae58eb9c02bee22",
+      "lastModificationDate": 1694866132095,
+      "contentHash": "444433268f2d058b4e4189c7cb913b23",
       "sourceName": "contracts/Marketplace.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/Counters.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Marketplace"
+      ]
+    },
+    "C:\\Users\\sgoel\\OneDrive\\Documents\\GitHub\\decentralised-marketplace\\contracts\\Cart.sol": {
+      "lastModificationDate": 1694876392921,
+      "contentHash": "fc68ea02931800c1816b353169a896d1",
+      "sourceName": "contracts/Cart.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -33,7 +70,42 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "Marketplace"
+        "Cart"
+      ]
+    },
+    "C:\\Users\\sgoel\\OneDrive\\Documents\\GitHub\\decentralised-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1694843372256,
+      "contentHash": "b7811964d33f23b2d45ed3ebb76a4548",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Counters"
       ]
     }
   }
