@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/decentralised-marketplace/static/css/main.8d3cf122.css",
-    "main.js": "/decentralised-marketplace/static/js/main.f7c6126b.js",
+    "main.js": "/decentralised-marketplace/static/js/main.2b063731.js",
     "static/js/787.c23b093c.chunk.js": "/decentralised-marketplace/static/js/787.c23b093c.chunk.js",
     "index.html": "/decentralised-marketplace/index.html",
     "main.8d3cf122.css.map": "/decentralised-marketplace/static/css/main.8d3cf122.css.map",
-    "main.f7c6126b.js.map": "/decentralised-marketplace/static/js/main.f7c6126b.js.map",
+    "main.2b063731.js.map": "/decentralised-marketplace/static/js/main.2b063731.js.map",
     "787.c23b093c.chunk.js.map": "/decentralised-marketplace/static/js/787.c23b093c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8d3cf122.css",
-    "static/js/main.f7c6126b.js"
+    "static/js/main.2b063731.js"
   ]
 }
