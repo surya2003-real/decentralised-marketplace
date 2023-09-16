@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
 contract UserManagement {
     struct User {
         string username;
@@ -20,5 +23,19 @@ contract UserManagement {
         emit UserRegistered(msg.sender, username);
     }
 
-    // Add functions for user authentication and profile retrieval
+    // Function to check if a username is taken
+    function isUsernameTaken(string memory username) public view returns (bool) {
+        return usernameToAddress[username] != address(0);
+    }
+
+    // Function to retrieve the username for an address
+    function getUsername(address userAddress) public view returns (string memory) {
+        return users[userAddress].username;
+    }
+
+    // Function to authenticate a user based on their username and address
+    function authenticateUser(string memory username, address userAddress) public view returns (bool) {
+        return users[userAddress].wallet == userAddress && keccak256(abi.encodePacked(users[userAddress].username)) == keccak256(abi.encodePacked(username));
+    }
 }
+

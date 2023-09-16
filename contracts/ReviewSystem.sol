@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
 contract ReviewSystem {
     struct Review {
         uint256 itemId;
@@ -17,6 +20,15 @@ contract ReviewSystem {
         emit ReviewAdded(itemId, msg.sender, rating, comment);
     }
 
-    // Add functions to retrieve reviews for items
-    // the ether.js part 
+    // Function to get the number of reviews for an item
+    function getReviewCount(uint256 itemId) public view returns (uint256) {
+        return itemReviews[itemId].length;
+    }
+
+    // Function to get a specific review for an item by index
+    function getReview(uint256 itemId, uint256 index) public view returns (uint8 rating, string memory comment) {
+        require(index < itemReviews[itemId].length, "Review index out of bounds");
+        Review memory review = itemReviews[itemId][index];
+        return (review.rating, review.comment);
+    }
 }

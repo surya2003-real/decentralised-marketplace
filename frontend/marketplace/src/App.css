@@ -1,57 +1,72 @@
 /* src/App.css */
 
-.App {
-  text-align: center;
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
+  background-color: aliceblue;
+  /* background-image: url(https://www.octaneai.com/hubfs/octaneai_shoppingcart_quiz_digital.png); */
+  background-size:cover;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #232f3e;
+.App {
+  max-width: 1200px;
+  margin: 60px auto 0;
   padding: 20px;
-  color: white;
 }
 
+/* Product listing styles */
 .Product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
+  gap: 20px;
 }
 
 .Product {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
+  padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
 }
 
 .Product-image {
   max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .Product-name {
-  font-size: 1.25rem;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .Product-price {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1rem;
   color: #007bff;
+  margin-top: 5px;
 }
 
 .Add-to-cart-button {
-  background-color: #f0c14b;
-  color: #111;
+  background-color: #f90;
   border: none;
+  color: #fff;
   padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 .Add-to-cart-button:hover {

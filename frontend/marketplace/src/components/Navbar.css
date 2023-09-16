@@ -1,58 +1,79 @@
 /* src/components/Navbar.css */
 
 .Navbar {
-    background-color: #232f3e;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .Navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .Navbar-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .Navbar-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 10px; /* Add padding for spacing */
-    transition: background-color 0.3s ease;
-  }
-  
-  .Navbar-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .Navbar-search {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px;
-  }
-  
-  .Navbar-search input {
-    border: none;
-    padding: 8px;
-    width: 200px;
-    outline: none;
-  }
-  
-  .Navbar-search button {
-    background-color: #f90;
-    border: none;
-    color: #fff;
-    padding: 8px;
-  }
-  
+  background-color: white;
+  color: #232f3e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.Navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 auto; /* Center the title horizontally */
+}
+
+.Navbar-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin-left: 0;
+}
+
+.Navbar-links a {
+  text-decoration: none;
+  color: #232f3e;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.Navbar-links a:hover {
+  color: #f90;
+}
+
+.Navbar-search {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-search input[type="text"] {
+  border: none;
+  background-color: rgba(35, 47, 62, 0.1);
+  color: #232f3e;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 4px 0 0 4px;
+  transition: background-color 0.3s ease;
+  width: 200px;
+}
+
+.Navbar-search input[type="text"]:focus {
+  background-color: rgba(35, 47, 62, 0.2);
+}
+
+.Navbar-search button {
+  background-color: #f90;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Navbar-search button:hover {
+  background-color: #ddb347;
+}

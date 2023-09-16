@@ -1,4 +1,12 @@
-contract OrderManagement {
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+contract OrderManagement is Ownable {
+    using Counters for Counters.Counter;
+
     enum OrderStatus { Placed, Shipped, Delivered, Cancelled }
 
     struct Order {
@@ -29,5 +37,25 @@ contract OrderManagement {
     }
 
     // Add functions for order status updates, order retrieval, and cancellation
-    // the ether.js updates the data from the cloud base
+    // For example:
+    
+    function updateOrderStatus(uint256 orderId, OrderStatus newStatus) public onlyOwner {
+        require(orders[orderId].orderId != 0, "Order does not exist");
+        orders[orderId].status = newStatus;
+    }
+
+    function getOrder(uint256 orderId) public view returns (Order memory) {
+        return orders[orderId];
+    }
+
+    function cancelOrder(uint256 orderId) public onlyOwner {
+        require(orders[orderId].orderId != 0, "Order does not exist");
+        require(orders[orderId].status == OrderStatus.Placed, "Order cannot be cancelled");
+        
+        // Refund the buyer
+        payable(orders[orderId].buyer).transfer(orders[orderId].totalPrice);
+        
+        // Update order status to Cancelled
+        orders[orderId].status = OrderStatus.Cancelled;
+    }
 }
