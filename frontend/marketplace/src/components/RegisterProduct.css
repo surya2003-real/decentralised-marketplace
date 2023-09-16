@@ -1,0 +1,78 @@
+/* src/components/RegisterProduct.css */
+
+.RegisterProduct {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #dbf0b0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .RegisterProduct h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .RegisterProduct form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #555;
+    text-align: left;
+    width: 100%;
+  }
+  
+  input[type="text"],
+  textarea,
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    font-size: 1.1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button[type="submit"] {
+    background-color: #ffd500;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #f59608;
+  }
+  
+  p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  

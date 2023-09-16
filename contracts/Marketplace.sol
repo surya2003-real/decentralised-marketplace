@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/utils/Counters.sol";
+
 contract Marketplace {
+    using Counters for Counters.Counter;
+
     address public owner;
     uint256 public productCount;
 
@@ -10,6 +14,7 @@ contract Marketplace {
         string name;
         string description;
         uint256 price;
+        uint256 quantity; // Add quantity
         address payable seller;
         address payable buyer;
         bool isSold;
@@ -17,8 +22,8 @@ contract Marketplace {
 
     mapping(uint256 => Product) public products;
 
-    event ProductCreated(uint256 id, string name, uint256 price, address seller);
-    event ProductPurchased(uint256 id, string name, uint256 price, address buyer);
+    event ProductCreated(uint256 id, string name, uint256 price, uint256 quantity, address seller);
+    event ProductPurchased(uint256 id, string name, uint256 price, uint256 quantity, address buyer);
 
     constructor() {
         owner = msg.sender;
@@ -29,29 +34,24 @@ contract Marketplace {
         _;
     }
 
-    function createProduct(string memory _name, string memory _description, uint256 _price) public {
+    function registerProduct(string memory _name, string memory _description, uint256 _price, uint256 _quantity) public onlyOwner {
         require(bytes(_name).length > 0, "Product name cannot be empty");
         require(bytes(_description).length > 0, "Product description cannot be empty");
         require(_price > 0, "Product price must be greater than 0");
+        require(_quantity > 0, "Product quantity must be greater than 0");
 
         productCount++;
-        products[productCount] = Product(productCount, _name, _description, _price, payable(msg.sender), payable(address(0)), false);
-        emit ProductCreated(productCount, _name, _price, msg.sender);
+        products[productCount] = Product(productCount, _name, _description, _price, _quantity, payable(msg.sender), payable(address(0)), false);
+        emit ProductCreated(productCount, _name, _price, _quantity, msg.sender);
     }
 
-    function purchaseProduct(uint256 _productId) public payable {
+    function purchaseProduct(uint256 _productId, uint256 _quantity) public {
         Product storage product = products[_productId];
         require(product.id > 0 && !product.isSold, "Product does not exist or is already sold");
-        require(msg.value >= product.price, "Insufficient funds to purchase the product");
+        require(_quantity <= product.quantity, "Not enough quantity available");
 
-        product.buyer = payable(msg.sender);
-        product.seller.transfer(msg.value);
-        product.isSold = true;
-        emit ProductPurchased(product.id, product.name, product.price, msg.sender);
-    }
-
-    function withdrawBalance() public onlyOwner {
-        payable(owner).transfer(address(this).balance);
+        product.quantity -= _quantity; // Update the remaining quantity
+        emit ProductPurchased(product.id, product.name, product.price, _quantity, msg.sender);
     }
 
     function listProduct(uint256 _productId) public {
