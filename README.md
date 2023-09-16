@@ -1,4 +1,5 @@
 # Decentralized Marketplace
+## Getting started
 Clone the repo on your computer and follow the instructions below to run the dapp.
 ```
 cd frontend
