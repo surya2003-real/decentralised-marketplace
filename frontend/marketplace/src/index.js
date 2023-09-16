@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router basename="https://surya2003-real.github.io/decentralised-marketplace">
+    <Router basename="/decentralised-marketplace">
     <App />
     </Router>
   </React.StrictMode>
