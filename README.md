@@ -1,4 +1,5 @@
 # Decentralized Marketplace
+![image](./images/dappathon2(2).jpg)
 ## Getting started
 Clone the repo on your computer and follow the instructions below to run the dapp.
 ```
